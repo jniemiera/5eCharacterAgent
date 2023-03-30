@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-image">
+      <figure class="image is-96x96"  [ngSwitch]="element.class">
+        <img *ngSwitchCase="'Barbarian'" src="assets/barbarian_icon.jpeg" alt="Placeholder image">
+        <img *ngSwitchCase="'Bard'" src="assets/bard_icon.jpeg" alt="Placeholder image">
+        <img *ngSwitchCase="'Cleric'" src="assets/cleric_icon.jpeg" alt="Placeholder image">
+        <img *ngSwitchCase="'Druid'" src="assets/druid_icon.jpeg" alt="Placeholder image">
+        <img *ngSwitchCase="'Fighter'" src="assets/fighter_icon.jpeg" alt="Placeholder image">
+        <img *ngSwitchCase="'Monk'" src="assets/monk_icon.jpeg" alt="Placeholder image">
+        <img *ngSwitchCase="'Paladin'" src="assets/paladin_icon.jpeg" alt="Placeholder image">
+        <img *ngSwitchCase="'Ranger'" src="assets/ranger_icon.jpeg" alt="Placeholder image">
+        <img *ngSwitchCase="'Rogue'" src="assets/rogue_icon.jpeg" alt="Placeholder image">
+        <img *ngSwitchCase="'Sorcerer'" src="assets/sorcerer_icon.jpeg" alt="Placeholder image">
+        <img *ngSwitchCase="'Warlock'" src="assets/warlock_icon.jpeg" alt="Placeholder image">
+        <img *ngSwitchCase="'Wizard'" src="assets/wizard_icon.jpeg" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-4">{{element.name}}</p>
+        </div>
+      </div>
+  
+      <div class="content">
+        Level {{element.level}} {{element.race}} {{element.class}}
+      </div>
+    </div>
+ </div>

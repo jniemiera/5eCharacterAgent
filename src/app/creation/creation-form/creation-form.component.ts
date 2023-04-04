@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { CharacterSheet } from 'src/app/rest';
+import { CharacterService, CharacterSheet } from 'src/app/rest';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creation-form',
@@ -13,6 +14,8 @@ export class CreationFormComponent {
     "class" : '',
     "level" : 1
   }
+
+  constructor(private characterService: CharacterService, private router: Router) {}
 
   onNameInput(event: Event) {
     let eventTarget = event.target as HTMLInputElement;
@@ -40,6 +43,7 @@ export class CreationFormComponent {
 
   onFormSubmit(event: Event) {
     event.preventDefault();
-    console.log(this.characterSheet);
+    this.characterService.addCharacter(this.characterSheet).subscribe();
+    this.router.navigate(['/collection']);
   }
 }

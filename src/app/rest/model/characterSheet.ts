@@ -13,12 +13,12 @@ import { Abilities } from './abilities';
 import { Proficiencies } from './proficiencies';
 
 export interface CharacterSheet { 
-    id: string;
+    //id: string;
     name?: string;
-    hitpoints?: number;
+    //hitpoints?: number;
     race?: string;
-    _class?: string;
+    class?: string;
     level?: number;
-    abilities?: Abilities;
-    proficiencies?: Proficiencies;
+    //abilities?: Abilities;
+    //proficiencies?: Proficiencies;
 }

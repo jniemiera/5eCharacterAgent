@@ -7,14 +7,6 @@ import { CharacterService } from 'src/app/rest/api/character.service';
   styleUrls: ['./collection-home.component.css']
 })
 
-// public interface SheetThumbnail {
-//   id: number,
-//   name: string,
-//   race: string,
-//   class: string,
-//   level: number
-// }
-
 export class CollectionHomeComponent implements OnInit{
   thumbs: any[] = [];
 

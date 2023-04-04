@@ -1,4 +1,5 @@
 <div class="card">
+  <a [routerLink]="['/collection', element.id]">
     <div class="card-image">
       <figure class="image is-96x96"  [ngSwitch]="element.class">
         <img *ngSwitchCase="'Barbarian'" src="assets/barbarian_icon.jpeg" alt="Placeholder image">
@@ -26,4 +27,5 @@
         Level {{element.level}} {{element.race}} {{element.class}}
       </div>
     </div>
+  </a>
  </div>

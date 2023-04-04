@@ -1,9 +1,7 @@
 <div>
     <ul>
         <li *ngFor="let thumb of thumbs">
-            <a routerLink="./thumb.id">
-                <app-collection-element [element]="thumb"></app-collection-element>
-            </a>
+            <app-collection-element [element]="thumb"></app-collection-element>
         </li>
     </ul>
 </div>

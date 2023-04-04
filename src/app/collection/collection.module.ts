@@ -5,6 +5,7 @@ import { CollectionRoutingModule } from './collection-routing.module';
 import { CollectionHomeComponent } from './collection-home/collection-home.component';
 import { CollectionElementComponent } from './collection-home/collection-element/collection-element.component';
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CharacterSheetComponent } from './character-sheet/character-sheet.compo
   ],
   imports: [
     CommonModule,
-    CollectionRoutingModule
+    CollectionRoutingModule,
+    FontAwesomeModule
   ]
 })
 export class CollectionModule { }

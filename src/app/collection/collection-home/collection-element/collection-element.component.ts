@@ -52,7 +52,7 @@ export class CollectionElementComponent {
   }
 
   delete() {
+    this.characterService.deleteCharacter(this.element.id.toString()).subscribe();
     this.deleted.emit(this.element.id);
-    this.characterService.deleteCharacter(this.element.id.toString());
   }
 }

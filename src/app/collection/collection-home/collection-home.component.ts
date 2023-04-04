@@ -20,6 +20,10 @@ export class CollectionHomeComponent implements OnInit{
 
   constructor(private characterService: CharacterService) {}
 
+  onItemDeleted(idToDelete: number) {
+    this.thumbs = this.thumbs.filter(item => item.id != idToDelete);
+  }
+
   ngOnInit(): void {
     this.characterService.searchCharacters(0, 20).subscribe(response => {
       this.thumbs = response;

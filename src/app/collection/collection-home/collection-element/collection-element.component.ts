@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CharacterService } from 'src/app/rest';
 
 interface elementInterface {
   id: number,
@@ -22,6 +23,9 @@ export class CollectionElementComponent {
     "race": "Human",
     "level": 1
   };
+  @Output() deleted: EventEmitter<number> = new EventEmitter<number>();
+
+  constructor(private characterService: CharacterService) {}
 
   classImages: any[] = [
     {class: "Barbarian", path:"assets/barbarian_icon.jpeg"},
@@ -45,5 +49,10 @@ export class CollectionElementComponent {
         return image.path;
       }
     }
+  }
+
+  delete() {
+    this.deleted.emit(this.element.id);
+    this.characterService.deleteCharacter(this.element.id.toString());
   }
 }

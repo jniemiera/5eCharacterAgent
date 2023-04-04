@@ -1,7 +1,7 @@
 <div>
     <ul>
         <li *ngFor="let thumb of thumbs">
-            <app-collection-element [element]="thumb"></app-collection-element>
+            <app-collection-element (deleted)="onItemDeleted($event)" [element]="thumb"></app-collection-element>
         </li>
     </ul>
 </div>

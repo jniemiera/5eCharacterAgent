@@ -1,6 +1,7 @@
 <div class="card">
-  <a [routerLink]="['/collection', element.id]">
     <div class="card-image">
+      <button>Edit</button>
+      <button (click)="delete()">Delete</button>
       <figure class="image is-96x96">
         <img [src]="getClassImage()" alt="Placeholder image">
       </figure>
@@ -8,7 +9,9 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <p class="title is-4">{{element.name}}</p>
+          <a [routerLink]="['/collection', element.id]">
+            <p class="title is-4">{{element.name}}</p>
+          </a>
         </div>
       </div>
   
@@ -16,5 +19,4 @@
         Level {{element.level}} {{element.race}} {{element.class}}
       </div>
     </div>
-  </a>
- </div>
+</div>

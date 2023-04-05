@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreationFormComponent } from './creation-form/creation-form.component';
 
 const routes: Routes = [
-  {path: '', component: CreationFormComponent}
+  {path: ':id', component: CreationFormComponent},
 ];
 
 @NgModule({

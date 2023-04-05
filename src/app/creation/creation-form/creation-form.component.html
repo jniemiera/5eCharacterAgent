@@ -1,8 +1,13 @@
-<form (submit)="onFormSubmit($event)">
-    <input (input)="onNameInput($event)" class="input" placeholder="Jester Lavorre"/>
-    <input (input)="onRaceInput($event)" class="input" placeholder="Tiefling"/>
-    <input (input)="onClassInput($event)" class="input" placeholder="Cleric"/>
-    <input (change)="onLevelChange($event)" type="number" min="1" max="20" placeholder="1">
+<h1>{{title}}</h1>
+
+<form (submit)="onFormSubmit($event)" [formGroup]="characterSheetForm">
+    <input formControlName="name" (input)="onNameInput($event)" class="input" placeholder="Jester Lavorre"/>
+    <input formControlName="race" (input)="onRaceInput($event)" class="input" placeholder="Tiefling"/>
+    <input formControlName="class" (input)="onClassInput($event)" class="input" placeholder="Cleric"/>
+    <input formControlName="level" (change)="onLevelChange($event)" type="number" min="1" max="20" placeholder="1">
 
     <input type="submit">
 </form>
+
+<span>{{characterSheetForm.value | json}}</span>
+<span>{{characterSheetForm.valid}}</span>

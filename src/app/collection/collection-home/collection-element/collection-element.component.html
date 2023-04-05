@@ -1,5 +1,7 @@
 <div class="card">
-  <button>Edit</button>
+  <a [routerLink]="['/create', element.id]">
+    <button>Edit</button>
+  </a>
   <button (click)="delete()">Delete</button>
   <a [routerLink]="['/collection', element.id]">
     <div class="card-image">

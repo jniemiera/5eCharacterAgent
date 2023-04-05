@@ -86,8 +86,17 @@ export class CreationFormComponent {
 
   onLevelChange(event: Event) {
     let eventTarget = event.target as HTMLInputElement;
-    let value = eventTarget.value;
-    this.characterSheet.level = parseInt(value);
+    let value = parseInt(eventTarget.value);
+    if(value < 1) {
+      value = 1;
+      this.characterSheetForm.get('level')?.setValue(value);
+    }
+    if(value > 20) {
+      value = 20;
+      this.characterSheetForm.get('level')?.setValue(value);
+    }
+
+    this.characterSheet.level = value;
   }
 
   onFormSubmit(event: Event) {

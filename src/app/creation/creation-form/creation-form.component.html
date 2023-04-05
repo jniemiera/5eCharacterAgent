@@ -2,12 +2,24 @@
 
 <form (submit)="onFormSubmit($event)" [formGroup]="characterSheetForm">
     <input formControlName="name" (input)="onNameInput($event)" class="input" placeholder="Jester Lavorre"/>
+
+    <ng-container *ngIf="characterSheetForm.controls.name.dirty && 
+    characterSheetForm.controls.name.touched &&
+    characterSheetForm.controls.name.errors">
+        <div *ngIf="characterSheetForm.controls.name.errors['required']">
+            Value is required
+        </div>
+
+    </ng-container>
+
     <input formControlName="race" (input)="onRaceInput($event)" class="input" placeholder="Tiefling"/>
+
+    
     <input formControlName="class" (input)="onClassInput($event)" class="input" placeholder="Cleric"/>
+
+
+
     <input formControlName="level" (change)="onLevelChange($event)" type="number" min="1" max="20" placeholder="1">
 
-    <input type="submit">
+    <input type="submit" [disabled]="characterSheetForm.invalid">
 </form>
-
-<span>{{characterSheetForm.value | json}}</span>
-<span>{{characterSheetForm.valid}}</span>

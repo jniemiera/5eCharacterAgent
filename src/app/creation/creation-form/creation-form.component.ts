@@ -15,7 +15,6 @@ export class CreationFormComponent {
   characterId: number = 0;
   sheet: any = {};
 
-
   characterSheet: CharacterSheet = {
     "name" : '',
     "race" : '',
@@ -72,16 +71,18 @@ export class CreationFormComponent {
     this.characterSheet.name = value;
   }
 
-  onRaceInput(event: Event) {
-    let eventTarget = event.target as HTMLInputElement;
-    let value = eventTarget.value;
-    this.characterSheet.race = value;
+  onRaceInput() {
+    let value = this.characterSheetForm.get('race')?.value;
+    if(value) {
+      this.characterSheet.race = value;
+    }
   }
 
-  onClassInput(event: Event) {
-    let eventTarget = event.target as HTMLInputElement;
-    let value = eventTarget.value;
-    this.characterSheet.class = value;
+  onClassInput() {
+    let value = this.characterSheetForm.get('class')?.value;
+    if(value) {
+      this.characterSheet.class = value;
+    }
   }
 
   onLevelChange(event: Event) {

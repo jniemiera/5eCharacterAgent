@@ -1,25 +1,65 @@
 <h1>{{title}}</h1>
 
-<form (submit)="onFormSubmit($event)" [formGroup]="characterSheetForm">
-    <input formControlName="name" (input)="onNameInput($event)" class="input" placeholder="Jester Lavorre"/>
+<div>
+  <form class="example-form" (submit)="onFormSubmit($event)" [formGroup]="characterSheetForm">
 
-    <ng-container *ngIf="characterSheetForm.controls.name.dirty && 
-    characterSheetForm.controls.name.touched &&
-    characterSheetForm.controls.name.errors">
-        <div *ngIf="characterSheetForm.controls.name.errors['required']">
-            Value is required
-        </div>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" (input)="onNameInput($event)" placeholder="Jester Lavorre">
+    </mat-form-field>
 
-    </ng-container>
+      <ng-container *ngIf="characterSheetForm.controls.name.dirty &&
+      characterSheetForm.controls.name.touched &&
+      characterSheetForm.controls.name.errors">
+          <div *ngIf="characterSheetForm.controls.name.errors['required']">
+              Value is required
+          </div>
 
-    <input formControlName="race" (input)="onRaceInput($event)" class="input" placeholder="Tiefling"/>
+      </ng-container>
 
-    
-    <input formControlName="class" (input)="onClassInput($event)" class="input" placeholder="Cleric"/>
+      <!-- <input formControlName="race" (input)="onRaceInput($event)" class="input" placeholder="Tiefling"/> -->
+      <mat-form-field appearance="fill">
+          <mat-select formControlName="race" (selectionChange)="onRaceInput()">
+              <mat-option value="Dragonborn">Dragonborn</mat-option>
+              <mat-option value="Dwarf">Dwarf</mat-option>
+              <mat-option value="Elf">Elf</mat-option>
+              <mat-option value="Gnome">Gnome</mat-option>
+              <mat-option value="Half-Elf">Half-Elf</mat-option>
+              <mat-option value="Halfling">Halfling</mat-option>
+              <mat-option value="Half-Orc">Half-Orc</mat-option>
+              <mat-option value="Human">Human</mat-option>
+              <mat-option value="Tiefling">Tiefling</mat-option>
+          </mat-select>
+      </mat-form-field>
+
+      <!-- <input formControlName="class" (input)="onClassInput($event)" class="input" placeholder="Cleric"/> -->
+      <mat-form-field appearance="fill">
+          <mat-select formControlName="class" (selectionChange)="onClassInput()">
+              <mat-option value="Barbarian">Barbarian</mat-option>
+              <mat-option value="Bard">Bard</mat-option>
+              <mat-option value="Cleric">Cleric</mat-option>
+              <mat-option value="Druid">Druid</mat-option>
+              <mat-option value="Fighter">Fighter</mat-option>
+              <mat-option value="Monk">Monk</mat-option>
+              <mat-option value="Paladin">Paladin</mat-option>
+              <mat-option value="Ranger">Ranger</mat-option>
+              <mat-option value="Rogue">Rogue</mat-option>
+              <mat-option value="Sorcerer">Sorcerer</mat-option>
+              <mat-option value="Warlock">Warlock</mat-option>
+              <mat-option value="Wizard">Wizard</mat-option>
+          </mat-select>
+      </mat-form-field>
 
 
 
-    <input formControlName="level" (change)="onLevelChange($event)" type="number" min="1" max="20" placeholder="1">
+      <mat-form-field>
+        <input matInput type="number" formControlName="level" (change)="onLevelChange($event)" min="1" max="20" placeholder="1">
+      </mat-form-field>
 
-    <input type="submit" [disabled]="characterSheetForm.invalid">
-</form>
+      <input type="submit" [disabled]="characterSheetForm.invalid">
+  </form>
+
+  {{characterSheet | json}}
+
+
+</div>

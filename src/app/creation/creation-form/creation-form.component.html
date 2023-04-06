@@ -17,36 +17,17 @@
 
       </ng-container>
 
-      <!-- <input formControlName="race" (input)="onRaceInput($event)" class="input" placeholder="Tiefling"/> -->
       <mat-form-field appearance="fill">
+          <mat-label>Race</mat-label>
           <mat-select formControlName="race" (selectionChange)="onRaceInput()">
-              <mat-option value="Dragonborn">Dragonborn</mat-option>
-              <mat-option value="Dwarf">Dwarf</mat-option>
-              <mat-option value="Elf">Elf</mat-option>
-              <mat-option value="Gnome">Gnome</mat-option>
-              <mat-option value="Half-Elf">Half-Elf</mat-option>
-              <mat-option value="Halfling">Halfling</mat-option>
-              <mat-option value="Half-Orc">Half-Orc</mat-option>
-              <mat-option value="Human">Human</mat-option>
-              <mat-option value="Tiefling">Tiefling</mat-option>
+            <mat-option *ngFor="let race of racesTable" [value]="race">{{race}}</mat-option>
           </mat-select>
       </mat-form-field>
 
-      <!-- <input formControlName="class" (input)="onClassInput($event)" class="input" placeholder="Cleric"/> -->
       <mat-form-field appearance="fill">
+        <mat-label>Class</mat-label>
           <mat-select formControlName="class" (selectionChange)="onClassInput()">
-              <mat-option value="Barbarian">Barbarian</mat-option>
-              <mat-option value="Bard">Bard</mat-option>
-              <mat-option value="Cleric">Cleric</mat-option>
-              <mat-option value="Druid">Druid</mat-option>
-              <mat-option value="Fighter">Fighter</mat-option>
-              <mat-option value="Monk">Monk</mat-option>
-              <mat-option value="Paladin">Paladin</mat-option>
-              <mat-option value="Ranger">Ranger</mat-option>
-              <mat-option value="Rogue">Rogue</mat-option>
-              <mat-option value="Sorcerer">Sorcerer</mat-option>
-              <mat-option value="Warlock">Warlock</mat-option>
-              <mat-option value="Wizard">Wizard</mat-option>
+              <mat-option *ngFor="let class of classesTable" [value]="class">{{class}}</mat-option>
           </mat-select>
       </mat-form-field>
 

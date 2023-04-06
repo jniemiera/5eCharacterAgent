@@ -29,6 +29,32 @@ export class CreationFormComponent {
     level: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(20)]),
   });
 
+  racesTable: String[] = [
+    "Dragonborn",
+    "Dwarf",
+    "Elf",
+    "Gnome",
+    "Half-Elf",
+    "Halfling",
+    "Half-Orc",
+    "Human",
+    "Tiefling"
+  ];
+  classesTable: String[] = [
+    "Barbarian",
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Fighter",
+    "Monk",
+    "Paladin",
+    "Ranger",
+    "Rogue",
+    "Sorcerer",
+    "Warlock",
+    "Wizard"
+  ];
+
   constructor(private characterService: CharacterService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {

@@ -1,23 +1,33 @@
-<div class="card">
-  <a [routerLink]="['/create', element.id]">
-    <button>Edit</button>
-  </a>
-  <button (click)="delete()">Delete</button>
-  <a [routerLink]="['/collection', element.id]">
-    <div class="card-image">
-      <figure class="image is-96x96">
-        <img [src]="getClassImage()" alt="Placeholder image">
-      </figure>
-    </div>
-    <div class="card-content">
-      <div class="media">
-        <div class="media-content">
-            <p class="title is-4">{{element.name}}</p>
-        </div>
+<div class="card" style="max-width: 80vw; margin: 1rem;">
+  <div class="card-header" style="display: flex; justify-content: flex-end; background-color: #f5f5f5;">
+    <a [routerLink]="['/create', element.id]" class="card-header-icon" style="height:50px">
+      <button mat-icon-button>
+        <mat-icon>edit</mat-icon>
+      </button>
+    </a>
+    <span class="card-header-icon" style="height: 50px;">
+      <button mat-icon-button (click)="delete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </span>
+  </div>
+  <a [routerLink]="['/collection', element.id]" style="display: flex;"> <!-- Objęcie całej karty linkiem -->
+    <div class="card-content" style="display: flex;"> <!-- Dodanie stylu wyświetlania elementu card-content jako flexbox -->
+      <div class="card-image" style="margin-right: 1rem;"> <!-- Ustawienie marginesu z prawej strony dla obrazka -->
+        <figure class="image is-96x96">
+          <img [src]="getClassImage()" alt="Placeholder image">
+        </figure>
       </div>
-  
-      <div class="content">
-        Level {{element.level}} {{element.race}} {{element.class}}
+      <div style="flex-grow: 1; color: black"> <!-- Ustawienie elastyczności elementu z linkiem, żeby reszta informacji była zaraz po lewej obrazka -->
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4">{{element.name}}</p>
+          </div>
+        </div>
+
+        <div class="content">
+          Level {{element.level}} {{element.race}} {{element.class}}
+        </div>
       </div>
     </div>
   </a>

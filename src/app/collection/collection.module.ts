@@ -6,6 +6,8 @@ import { CollectionHomeComponent } from './collection-home/collection-home.compo
 import { CollectionElementComponent } from './collection-home/collection-element/collection-element.component';
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     CommonModule,
     CollectionRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class CollectionModule { }

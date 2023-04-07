@@ -62,6 +62,7 @@ export class CreationFormComponent {
       this.characterId = +params['id'];
       if(this.characterId === 0) {
         this.title = "Create Character";
+        this.clearForm();
       } else {
         this.title = "Update Character";
         this.characterService.getSingleCharacter(this.characterId.toString()).subscribe(sheet => {
@@ -70,6 +71,13 @@ export class CreationFormComponent {
           });
       }
     });
+  }
+
+  clearForm() {
+    this.characterSheetForm.get('name')?.setValue('');
+    this.characterSheetForm.get('race')?.setValue('');
+    this.characterSheetForm.get('class')?.setValue('');
+    this.characterSheetForm.get('level')?.setValue(1);
   }
 
   fillInputAreas(sheet: any) {

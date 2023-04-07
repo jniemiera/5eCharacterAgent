@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
 
 <div>
-  <form class="example-form" (submit)="onFormSubmit($event)" [formGroup]="characterSheetForm">
+  <form class="example-form" [formGroup]="characterSheetForm">
 
     <mat-form-field>
       <mat-label>Name</mat-label>
@@ -37,7 +37,10 @@
         <input matInput type="number" formControlName="level" (change)="onLevelChange($event)" min="1" max="20" placeholder="1">
       </mat-form-field>
 
-      <input type="submit" [disabled]="characterSheetForm.invalid">
+      <button (click)="onFormSubmit($event)" [disabled]="characterSheetForm.invalid" mat-raised-button color="primary">
+        <mat-icon>save</mat-icon>
+        Save
+      </button>
   </form>
 
   {{characterSheet | json}}

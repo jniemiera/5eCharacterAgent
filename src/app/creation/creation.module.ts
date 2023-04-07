@@ -6,6 +6,7 @@ import { CreationFormComponent } from './creation-form/creation-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input'
+import { MatIconModule } from '@angular/material/icon'
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MatInputModule } from '@angular/material/input'
     CreationRoutingModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ]
 })
 export class CreationModule { }

@@ -11,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class CreationFormComponent {
 
-  title: string = "";
+  formTitle: string = "";
   characterId: number = 0;
   sheet: any = {};
 
@@ -61,10 +61,10 @@ export class CreationFormComponent {
     this.route.params.subscribe(params => {
       this.characterId = +params['id'];
       if(this.characterId === 0) {
-        this.title = "Create Character";
+        this.formTitle = "Create Character";
         this.clearForm();
       } else {
-        this.title = "Update Character";
+        this.formTitle = "Update Character";
         this.characterService.getSingleCharacter(this.characterId.toString()).subscribe(sheet => {
             this.sheet = sheet;
             this.fillInputAreas(sheet);
@@ -139,7 +139,6 @@ export class CreationFormComponent {
     if (this.characterId === 0) {
       this.characterService.addCharacter(this.characterSheet).subscribe();
     } else {
-      console.log("update postaci");
       this.characterService.updateCharacter(this.characterId.toString(), this.characterSheet).subscribe();
     }
     this.router.navigate(['/collection']);

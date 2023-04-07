@@ -1,49 +1,60 @@
-<h1>{{title}}</h1>
+<div class="content">
+  <h2>{{formTitle}}</h2>
+</div>
 
 <div>
   <form class="example-form" [formGroup]="characterSheetForm">
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" (input)="onNameInput($event)" placeholder="Jester Lavorre">
+        </mat-form-field>
+      </div>
+    </div>
 
-    <mat-form-field>
-      <mat-label>Name</mat-label>
-      <input matInput formControlName="name" (input)="onNameInput($event)" placeholder="Jester Lavorre">
-    </mat-form-field>
-
-      <ng-container *ngIf="characterSheetForm.controls.name.dirty &&
-      characterSheetForm.controls.name.touched &&
-      characterSheetForm.controls.name.errors">
-          <div *ngIf="characterSheetForm.controls.name.errors['required']">
-              Value is required
-          </div>
-
-      </ng-container>
-
-      <mat-form-field appearance="fill">
+    <div class="field">
+      <label class="label">Race</label>
+      <div class="control">
+        <mat-form-field appearance="fill">
           <mat-label>Race</mat-label>
           <mat-select formControlName="race" (selectionChange)="onRaceInput()">
             <mat-option *ngFor="let race of racesTable" [value]="race">{{race}}</mat-option>
           </mat-select>
-      </mat-form-field>
+        </mat-form-field>
+      </div>
+    </div>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Class</mat-label>
+    <div class="field">
+      <label class="label">Class</label>
+      <div class="control">
+        <mat-form-field appearance="fill">
+          <mat-label>Class</mat-label>
           <mat-select formControlName="class" (selectionChange)="onClassInput()">
-              <mat-option *ngFor="let class of classesTable" [value]="class">{{class}}</mat-option>
+            <mat-option *ngFor="let class of classesTable" [value]="class">{{class}}</mat-option>
           </mat-select>
-      </mat-form-field>
+        </mat-form-field>
+      </div>
+    </div>
 
+    <div class="field">
+      <label class="label">Level</label>
+      <div class="control">
+        <mat-form-field>
+          <input matInput type="number" formControlName="level" (change)="onLevelChange($event)" min="1" max="20" placeholder="1">
+        </mat-form-field>
+      </div>
+    </div>
 
-
-      <mat-form-field>
-        <input matInput type="number" formControlName="level" (change)="onLevelChange($event)" min="1" max="20" placeholder="1">
-      </mat-form-field>
-
-      <button (click)="onFormSubmit($event)" [disabled]="characterSheetForm.invalid" mat-raised-button color="primary">
-        <mat-icon>save</mat-icon>
-        Save
-      </button>
+    <div class="field">
+      <div class="control">
+        <button (click)="onFormSubmit($event)" [disabled]="characterSheetForm.invalid" mat-raised-button color="primary">
+          <mat-icon>save</mat-icon>
+          Save
+        </button>
+      </div>
+    </div>
   </form>
-
-  {{characterSheet | json}}
-
-
 </div>
+
